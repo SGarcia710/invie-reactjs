@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 function mapStateToProps(state) {
     return {
-            logo: state.logoPortada,
-            menu: state.menu
-        }
+        logo: state.logoPortada,
+        menu: state.menu,
+        isAnimated: state.isAnimated,
+    }
 }
-
 
 class Portada extends Component {
     render() {
@@ -30,11 +31,20 @@ class Portada extends Component {
                 </ul>
               </nav>
             </header>
-            <div className="contenedor">
-              <h1 className="titulo">Guitarras <span>invie</span>sibles</h1>
-              <h3 className="title-a">Sé la estrella de rock que siempre quisiste ser</h3>
-              <a className="button" href="#guitarras">Conoce mas</a>
-            </div>
+            <CSSTransitionGroup
+            transitionName = "animationInOut"
+            transitionEnterTimeout = {800}
+            transitionLeaveTimeout = {800}
+            >
+                {
+                !this.props.isAnimated &&
+                <div className="contenedor" key="portada">
+                    <h1 className="titulo">Guitarras <span>invie</span>sibles</h1>
+                    <h3 className="title-a">Sé la estrella de rock que siempre quisiste ser</h3>
+                    <a className="button" href="#guitarras">Conoce mas</a>
+                </div>
+                }
+            </CSSTransitionGroup>
           </section>
         );
     }

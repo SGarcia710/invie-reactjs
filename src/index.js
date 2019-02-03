@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
+import './css/invie.css';
+import './css/animations.css';
 import Invie from './Invie';
 import * as serviceWorker from './serviceWorker';
 
@@ -15,10 +17,12 @@ import cheet from 'cheet.js';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-
+import easterA from './images/easter-a.png'
+import easterB from './images/easter-b.png'
 
 
 const initialState = {
+  isAnimated: false,
   menu: [
     {
         href: 'index.html',
@@ -76,12 +80,36 @@ function reducer(state, action) {
 const store = createStore(reducer, initialState);
 
 const easter = {
+  isAnimated: 'is-animated',
   menu: [
     {
         href: 'index.html',
         title: 'Home'
     },
   ],
+  guitarras: [
+    {
+      image: easterA,
+      alt: 'Guitarra padre de familia',
+      name: 'Invie Aire',
+      features: [
+          'Lista para copiar a los Simpsons',
+          'Aire puro',
+          'Chistes malos',
+      ]
+    },
+    {
+      image: easterB,
+      alt: 'Guitarra Invie Clasica',
+      name: 'Invie Estrellada',
+      features: [
+          'Estilo vintage',
+          'Liviana',
+          'Empieza tu camino como rockstar',
+      ]
+    }
+  ]
+
 }
 
 cheet('s e b', () =>{

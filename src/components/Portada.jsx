@@ -14,7 +14,7 @@ class Portada extends Component {
     render() {
 
         return(
-            <section id="portada" className="portada background"> 
+            <section id="portada" className={`portada background ${this.props.isAnimated}`}> 
             <header id="header" className="header contenedor"> 
               <figure className="logotipo"> 
                 <img src={this.props.logo} width="186" height="60" alt="Invie logotipo"/>

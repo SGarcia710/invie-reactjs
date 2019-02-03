@@ -19,6 +19,7 @@ import { createStore } from 'redux';
 
 import easterA from './images/easter-a.png'
 import easterB from './images/easter-b.png'
+import easterLogo from './images/amazon-logo.png'
 
 
 const initialState = {
@@ -81,12 +82,8 @@ const store = createStore(reducer, initialState);
 
 const easter = {
   isAnimated: 'is-animated',
-  menu: [
-    {
-        href: 'index.html',
-        title: 'Home'
-    },
-  ],
+  menu: [],
+  logoPortada: easterLogo,
   guitarras: [
     {
       image: easterA,
